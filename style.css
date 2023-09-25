@@ -4,28 +4,29 @@ body {
 
 @keyframes ellipse-rotation {
     from {
-        transform: rotate(0deg);
+        transform: rotate(0deg) translate(0%, 25%);
+
     }
     to {
-        transform: rotate(360deg);
+        transform: rotate(180deg) translate(25%, -50%);
     }
 }
 
 .ellipse {
     object-fit: cover;
     position: absolute;
-    rotate: 360deg;
 }
 
 .ellipse:nth-of-type(1) {
-    width: 1000px;
+    width: 1250px;
     left: -250px;
     top: -350px;
+    rotate: 120deg;
     animation: ellipse-rotation 60s linear infinite;
 }
 
 .ellipse:nth-of-type(2) {
-    width: 750px;
+    width: 1100px;
     right: -400px;
     bottom: -250px;
     animation: ellipse-rotation 60s alternate infinite;
@@ -52,11 +53,11 @@ body {
 
 #spinner-loader .spinner-content > figure {
     width: 250px;
-    margin-bottom: 60px;
     -webkit-box-shadow: 0px 0px 15px 5px rgba(61,61,245,0.5);
     box-shadow: 0px 0px 15px 5px rgba(61,61,245,0.7);
     border: 2px solid #3D3DF5;
     border-radius: 50%;
+    margin: 0 0 60px 0;
 }
 
 #spinner-loader .spinner-content > figure img {
@@ -69,7 +70,7 @@ body {
     border-radius: 100px;
     padding: 10px 40px;
     width: fit-content;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     z-index: 999;
 }
 
@@ -124,20 +125,7 @@ body {
     animation-delay: 1s;
 }
 
-@keyframes padding-transition {
-    0% {
-        padding: 0;
-    }
-    25% {
-        padding: 0 210px 0 105px;
-    }
-    75% {
-        padding: 0 210px 0 105px;
-    }
-    100% {
-        padding: 0;
-    }
-}
+
 
 #spinner-loader .spinner-content .logo-container .simple .first-letter {
     position: absolute;
@@ -154,24 +142,6 @@ body {
     animation: appearPurple 3s ease;
     animation-delay: 1.5s;
 }
-
-@keyframes appearPurple {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-    75% {
-        opacity: 0;
-    }
-}
-
-
-
-
-
 
 .spinner-content .web p, .spinner-content .simple p {
     color: white;
@@ -191,7 +161,6 @@ body {
     text-align: center;
 }
 .slogan p {
-    font-size: 20px;
     font-style: italic;
     color: white;
     font-family: "Object-Sans Regular";
@@ -202,29 +171,43 @@ body {
     background: linear-gradient(90deg, #000000, #fff, #000);
     background-repeat: no-repeat;
     background-size: 85%;
-    animation: animate 5s forwards ;
+    animation: animate-slogan 5s forwards ;
     -webkit-background-clip: text;
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
     animation-delay: 3s;
     background-position: -500%;
 }
 
-.slogan p::after {
-    content: " ";
-    position: absolute;
-    top: 40px;
-    border-bottom: 2px solid white;
-    left: 0;
-    width: 0;
-
+@keyframes appearPurple {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0;
+    }
 }
 
-@keyframes animate {
+@keyframes padding-transition {
     0% {
-        background-position: -500%;
+        padding: 0;
     }
     25% {
+        padding: 0 210px 0 105px;
+    }
+    75% {
+        padding: 0 210px 0 105px;
+    }
+    100% {
+        padding: 0;
+    }
+}
 
+@keyframes animate-slogan {
+    0% {
+        background-position: -500%;
     }
     100% {
         background-position: 100%;
